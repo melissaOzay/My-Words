@@ -1,7 +1,10 @@
 package com.example.mywords
 
+import android.content.ContentValues.TAG
 import android.content.IntentFilter
 import android.os.Bundle
+import android.util.Log
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
@@ -9,6 +12,9 @@ import com.example.mywords.ui.FavoriteFragment
 import com.example.mywords.ui.HomeFragment
 import com.example.mywords.ui.OpenFragment
 import com.example.mywords.ui.SaveFragment
+import com.google.android.gms.tasks.OnCompleteListener
+import com.google.firebase.FirebaseApp
+import com.google.firebase.messaging.FirebaseMessaging
 import com.ismaeldivita.chipnavigation.ChipNavigationBar
 
 
@@ -28,6 +34,7 @@ class MainActivity : AppCompatActivity(),OpenFragment {
     private val favoriteFragment by lazy {
         FavoriteFragment()
     }
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -53,6 +60,7 @@ class MainActivity : AppCompatActivity(),OpenFragment {
                 }
             }
         })
+
     }
 
     override fun onResume() {
